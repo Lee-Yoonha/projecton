@@ -28,7 +28,7 @@
     }
 
     html {
-      scroll-behavior: smooth;
+      scroll-behavior: auto;
     }
 
     body {
@@ -46,6 +46,11 @@
     .page {
       min-height: 100vh;
       background: var(--bg);
+      display: none;
+    }
+
+    .page.active {
+      display: block;
     }
 
     .topbar {
@@ -310,6 +315,11 @@
       color: #777;
       font-size: 13px;
       background: var(--bg);
+      display: none;
+    }
+
+    footer.active {
+      display: block;
     }
 
     @media (max-width: 799px) {
@@ -424,7 +434,7 @@
 </head>
 
 <body>
-  <div class="page" id="home">
+  <div class="page active" id="home">
     <header class="hero">
       <h1>만나러 갈게, 비는 오지만</h1>
     </header>
@@ -625,5 +635,36 @@
   <footer>
     © 만나러 갈게, 비는 오지만
   </footer>
+
+  <script>
+    const pages = document.querySelectorAll(".page");
+    const footer = document.querySelector("footer");
+    const validPages = ["home", "synopsis", "cast", "credit", "sponsor"];
+
+    function showPage(pageId) {
+      if (!validPages.includes(pageId)) {
+        pageId = "home";
+      }
+
+      pages.forEach((page) => {
+        page.classList.toggle("active", page.id === pageId);
+      });
+
+      if (footer) {
+        footer.classList.toggle("active", pageId === "home");
+      }
+
+      window.scrollTo(0, 0);
+    }
+
+    function handleRoute() {
+      const pageId = location.hash.replace("#", "") || "home";
+      showPage(pageId);
+    }
+
+    window.addEventListener("hashchange", handleRoute);
+    window.addEventListener("DOMContentLoaded", handleRoute);
+  </script>
+
 </body>
 </html>
