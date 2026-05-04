@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+  font-family: "Pretendard", sans-serif;
+  background: #eeeeee;
+}
+
+.topbar {
+  height: 80px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.back {
+  position: absolute;
+  left: 20px;
+  font-size: 22px;
+}
+
+.title {
+  font-size: 22px;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 30px;
+}
+
+.section-title {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.button {
+  display: block;
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  border-radius: 999px;
+  margin: 10px 0;
+}
